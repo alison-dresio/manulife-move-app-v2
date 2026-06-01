@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design DNA variables (Rhythm) */
+:root {
+  --manulife-green: #00A651;
+  --manulife-accent: #00C273;
+  --surface-calm: #F7F8F9;
+  --surface-elevated: #FFFFFF;
+  --surface-dark: #0F1724;
+  --text-primary: #0B1720;
+  --text-muted: #6B7280;
+}
+
+/* Rhythm micro-animations */
+@keyframes rhythm-pulse {
+  0% { transform: scale(1); opacity: 1 }
+  50% { transform: scale(1.03); opacity: 0.98 }
+  100% { transform: scale(1); opacity: 1 }
+}
+
+.rhythm-pulse {
+  animation: rhythm-pulse 600ms ease-out 1;
+}
+
+.glass-layer {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background-color: rgba(0,0,0,0.18);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-gray-50 text-slate-800;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Mobile touch target: ensure buttons are at least 48px high for accessibility */
+button {
+  min-height: 48px;
+}
+
+/* Mobile container emulation */
+.mobile-frame {
+  max-width: 390px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
+}
+
+/* Safe area padding applied via CSS to avoid arbitrary Tailwind classes */
+.mobile-frame {
+  padding-top: env(safe-area-inset-top, 16px);
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}

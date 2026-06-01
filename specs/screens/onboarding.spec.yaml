@@ -1,0 +1,23 @@
+# Spec: Onboarding (persona questionnaire + initial preferences)
+id: onboarding
+version: 1
+title: Onboarding Flow
+steps:
+  - id: persona_questionnaire
+    spec_ref: persona_questionnaire
+    required: true
+  - id: goals
+    type: form
+    fields:
+      - id: primary_goal
+        type: single_choice
+        choices: ["Start/restart exercising","Stay active","Improve performance","Recover from injury or condition"]
+  - id: prefs
+    type: form
+    fields:
+      - id: notifications
+        type: boolean
+        default: true
+outputs:
+  - user_profile
+  - persona_assignment

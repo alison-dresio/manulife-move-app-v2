@@ -1,0 +1,47 @@
+# Spec: Persona Questionnaire (Phase 1)
+id: persona_questionnaire
+title: Persona Questionnaire v1
+version: 1
+questions:
+  - id: q1
+    text: "How many days per week do you currently engage in physical activity?"
+    type: single_choice
+    choices: ["0","1-2","3-4","5+"]
+  - id: q2
+    text: "What best describes the intensity of your typical exercise?"
+    type: single_choice
+    choices: ["Light","Moderate","Vigorous"]
+  - id: q3
+    text: "I exercise because I enjoy the activity itself."
+    type: likert
+    scale: 5
+    meta: {instrument: "BREQ-3", trait: "Intrinsic"}
+  - id: q4
+    text: "I exercise because I would feel bad about myself if I didn’t."
+    type: likert
+    scale: 5
+    meta: {instrument: "BREQ-3", trait: "Introjected"}
+  - id: q5
+    text: "I exercise because I value the benefits to my health."
+    type: likert
+    scale: 5
+    meta: {instrument: "BREQ-3", trait: "Identified"}
+  - id: q6
+    text: "What primarily motivates your physical activity?"
+    type: single_choice
+    choices: ["Fitness","Health","Appearance","Social","Fun","Competition"]
+  - id: q7
+    text: "How confident are you in your ability to maintain a regular exercise routine?"
+    type: likert
+    scale: 5
+  - id: q8
+    text: "What is your main fitness goal right now?"
+    type: single_choice
+    choices: ["Start/restart exercising","Stay active","Improve performance","Recover from injury or condition"]
+outputs:
+  - personas: ["Gentle Restarter","Steady Mover","Active Challenger","Social Competitor"]
+rules:
+  - name: default_persona
+    description: "Fallback to Gentle Restarter until we have enough data for clustering"
+    condition: "true"
+    action: "persona = Gentle Restarter"

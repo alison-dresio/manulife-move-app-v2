@@ -1,0 +1,18 @@
+# Spec: Dashboard (summary of progress, energy, daily challenge)
+id: dashboard
+version: 1
+title: Home Dashboard
+widgets:
+  - id: energy_status
+    type: numeric
+    description: "Daily energy and regeneration info"
+  - id: daily_challenge
+    type: challenge
+    description: "Active daily challenge summary"
+  - id: recent_games
+    type: list
+    item: {title: string, score: number, date: date}
+endpoints:
+  - id: get_user_summary
+    method: GET
+    path: /api/v1/user/summary
