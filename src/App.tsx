@@ -27,6 +27,7 @@ export default function App() {
           <Route path="/rewards" element={<RewardCentre />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/camera" element={<CameraCalibration />} />
+          <Route path="/camera-calibration" element={<CameraCalibration />} />
           <Route path="/active-game" element={<ActiveGame />} />
           <Route path="/results" element={<Results />} />
         </Routes>
